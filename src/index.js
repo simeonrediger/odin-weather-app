@@ -9,6 +9,9 @@ console.log(weatherData);
 
 async function getWeatherData(location) {
     const requestUrl = getWeatherApiRequestUrl(location);
+    const response = await fetch(requestUrl);
+    const data = await response.json();
+    return data;
 }
 
 function getWeatherApiRequestUrl(location) {
