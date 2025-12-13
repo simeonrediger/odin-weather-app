@@ -19,7 +19,14 @@ async function getWeatherData(location) {
 
     // const data = await response.json();
     const data = demoData;
-    return data;
+
+    const requiredData = extractKeys(data, [
+        ['currentConditions', ['temp']],
+        'resolvedAddress',
+        'timezone',
+    ]);
+
+    return requiredData;
 }
 
 function getWeatherApiRequestUrl(location) {
@@ -37,4 +44,38 @@ function getWeatherApiRequestUrl(location) {
 async function handleBadReponse(response) {
     const errorMessage = await response.text();
     throw new Error(errorMessage);
+}
+
+function extractKeys(data, keys) {
+    const extractedData = {};
+
+    for (const key of keys) {
+        const hasSubKeys = Array.isArray(key);
+
+        if (!hasSubKeys) {
+            extractedData[key] = data[key];
+            continue;
+        }
+
+        const keyValuePair = key;
+
+        if (keyValuePair.length !== 2) {
+            throw new TypeError(
+                'Key-value pairs must contain exactly 2 elements. ' +
+                    `Got ${keyValuePair.length}.`,
+            );
+        }
+
+        const [parentKey, subkeys] = key;
+
+        if (!Array.isArray(subkeys)) {
+            throw new TypeError(
+                `Subkeys must be an Array. Got ${typeof subkeys}.`,
+            );
+        }
+
+        extractedData[parentKey] = extractKeys(data[parentKey] ?? {}, subkeys);
+    }
+
+    return extractedData;
 }
