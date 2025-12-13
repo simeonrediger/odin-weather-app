@@ -6,3 +6,6 @@
 
 # Dev files
 /TODO.md
+
+# Secrets
+/src/api-key.js
