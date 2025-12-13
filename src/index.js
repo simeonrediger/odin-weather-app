@@ -3,9 +3,11 @@ import './styles/colors.css';
 import './styles/layout.css';
 
 import visualCrossingApiKey from './api-key.js';
+import weatherRequestForm from './weather-request-form.js';
 
 import demoData from './demo-data.json';
 
+weatherRequestForm.init(document);
 const weatherData = await getWeatherData('Boston');
 console.log(weatherData);
 
