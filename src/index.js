@@ -10,6 +10,11 @@ console.log(weatherData);
 async function getWeatherData(location) {
     const requestUrl = getWeatherApiRequestUrl(location);
     const response = await fetch(requestUrl);
+
+    if (!response.ok) {
+        await handleBadReponse(response);
+    }
+
     const data = await response.json();
     return data;
 }
@@ -24,4 +29,9 @@ function getWeatherApiRequestUrl(location) {
     });
 
     return apiRequestUrl;
+}
+
+async function handleBadReponse(response) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
 }
