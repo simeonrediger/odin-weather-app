@@ -6,6 +6,7 @@ html {
   --white: #ccc;
 
   --blue: #339;
+  --light-blue: #66f;
   --pale-blue: #559;
 
   --color-bg-primary: var(--dark-gray);
@@ -14,6 +15,7 @@ html {
   --color-field-bg: var(--black);
   --color-field-text: var(--white);
   --color-field-border: var(--light-gray);
+  --color-field-border-focus: var(--light-blue);
 
   --color-button-bg: var(--blue);
   --color-button-text: var(--white);
