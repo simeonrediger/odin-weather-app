@@ -49,8 +49,8 @@ function validateElements(elementsObject) {
     }
 }
 
-const weatherRequestForm = {
+const weatherForm = {
     init,
 };
 
-export default weatherRequestForm;
+export default weatherForm;
