@@ -1,5 +1,7 @@
 import './style.css';
 
+import assert from '@/shared/assert.js';
+
 let container;
 let temperatureElement;
 
@@ -9,7 +11,10 @@ function init(root) {
 
 function cacheElements(root) {
     container = root.querySelector("[data-role='weather']");
+    assert.elements({ container });
+
     temperatureElement = container.querySelector("[data-role='temperature']");
+    assert.elements({ temperatureElement });
 }
 
 function render(weatherData, useFahrenheit) {
