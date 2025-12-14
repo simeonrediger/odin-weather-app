@@ -4,7 +4,9 @@ import './styles/layout.css';
 
 import visualCrossingApiKey from './api-key.js';
 import weatherRequestForm from './weather-request-form.js';
+import weatherView from './weather-view.js';
 
+weatherView.init(document);
 weatherRequestForm.init(document, handleWeatherRequestFormSubmit);
 
 async function handleWeatherRequestFormSubmit(location) {
