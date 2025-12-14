@@ -1,4 +1,4 @@
-import './styles/weather-view.css';
+import './style.css';
 
 let container;
 let temperatureElement;
@@ -8,7 +8,7 @@ function init(root) {
 }
 
 function cacheElements(root) {
-    container = root.querySelector("[data-role='weather-view']");
+    container = root.querySelector("[data-role='weather']");
     temperatureElement = container.querySelector("[data-role='temperature']");
 }
 
@@ -30,9 +30,9 @@ function renderTemperature(temperature, useFahrenheit = false) {
     temperatureElement.textContent = temperature + unit;
 }
 
-const weatherView = {
+const weatherComponent = {
     init,
     render,
 };
 
-export default weatherView;
+export default weatherComponent;

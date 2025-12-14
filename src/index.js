@@ -4,14 +4,14 @@ import './styles/layout.css';
 
 import visualCrossingApiKey from './api-key.js';
 import weatherFormComponent from './weather-form/component.js';
-import weatherView from './weather-view.js';
+import weatherComponent from './weather/component.js';
 
-weatherView.init(document);
+weatherComponent.init(document);
 weatherFormComponent.init(document, handleWeatherFormSubmit);
 
 async function handleWeatherFormSubmit(data) {
     const weatherData = await getWeatherData(data.location);
-    weatherView.render(weatherData, data.useFahrenheit);
+    weatherComponent.render(weatherData, data.useFahrenheit);
 }
 
 async function getWeatherData(location) {
