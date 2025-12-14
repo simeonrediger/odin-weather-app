@@ -16,6 +16,10 @@
   padding: 0.25rem 0.5rem;
 }
 
+.weather-request-form .checkbox {
+  justify-self: start;
+}
+
 .weather-request-form .field:focus {
   border-color: var(--color-field-border-focus);
   outline: 1px solid var(--color-field-border-focus);

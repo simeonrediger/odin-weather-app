@@ -2,6 +2,7 @@ import './styles/weather-request-form.css';
 
 let container;
 let locationInput;
+let useFahrenheitInput;
 let getWeatherButton;
 
 const handlers = {
@@ -19,8 +20,11 @@ function cacheElements(root) {
     validateElements({ container });
 
     locationInput = container.querySelector("[data-input='location']");
+    useFahrenheitInput = container.querySelector(
+        "[data-input='use-fahrenheit']",
+    );
     getWeatherButton = container.querySelector("[data-action='get-weather']");
-    validateElements({ locationInput, getWeatherButton });
+    validateElements({ locationInput, useFahrenheitInput, getWeatherButton });
 }
 
 function bindEvents() {
