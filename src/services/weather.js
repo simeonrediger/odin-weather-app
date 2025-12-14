@@ -1,6 +1,7 @@
 import visualCrossingApiKey from './api-key.js';
 
 async function getData(location) {
+    location = formatLocationToTriggerCanonicalization(location);
     const requestUrl = getRequestUrl(location);
     const response = await fetch(requestUrl);
 
@@ -17,6 +18,11 @@ async function getData(location) {
     ]);
 
     return requiredData;
+}
+
+// Fragile hack to force Visual Crossing to return a formatted resolvedAddress
+function formatLocationToTriggerCanonicalization(location) {
+    return '-' + location;
 }
 
 function getRequestUrl(location) {
