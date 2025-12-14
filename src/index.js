@@ -3,13 +3,13 @@ import './styles/colors.css';
 import './styles/layout.css';
 
 import visualCrossingApiKey from './api-key.js';
-import weatherRequestForm from './weather-request-form.js';
+import weatherFormComponent from './weather-form/component.js';
 import weatherView from './weather-view.js';
 
 weatherView.init(document);
-weatherRequestForm.init(document, handleWeatherRequestFormSubmit);
+weatherFormComponent.init(document, handleWeatherFormSubmit);
 
-async function handleWeatherRequestFormSubmit(data) {
+async function handleWeatherFormSubmit(data) {
     const weatherData = await getWeatherData(data.location);
     weatherView.render(weatherData, data.useFahrenheit);
 }

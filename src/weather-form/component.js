@@ -1,4 +1,4 @@
-import './styles/weather-request-form.css';
+import './style.css';
 
 let container;
 let locationInput;
@@ -16,7 +16,7 @@ function init(root, onSubmit) {
 }
 
 function cacheElements(root) {
-    container = root.querySelector("form[name='weather-request']");
+    container = root.querySelector("form[name='weather']");
     validateElements({ container });
 
     locationInput = container.querySelector("[data-input='location']");

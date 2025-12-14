@@ -1,4 +1,4 @@
-.weather-request-form {
+.weather-form {
   padding: 1rem;
 
   display: grid;
@@ -8,7 +8,7 @@
   align-items: baseline;
 }
 
-.weather-request-form .field {
+.weather-form .field {
   background-color: var(--color-field-bg);
   border: 1px solid var(--color-field-border);
   border-radius: 8px;
@@ -16,16 +16,16 @@
   padding: 0.25rem 0.5rem;
 }
 
-.weather-request-form .checkbox {
+.weather-form .checkbox {
   justify-self: start;
 }
 
-.weather-request-form .field:focus {
+.weather-form .field:focus {
   border-color: var(--color-field-border-focus);
   outline: 1px solid var(--color-field-border-focus);
 }
 
-.weather-request-form .submit-button {
+.weather-form .submit-button {
   background-color: var(--color-button-bg);
   border: 1px solid var(--color-button-border);
   border-radius: 8px;
@@ -35,11 +35,11 @@
   padding: 0.25rem 0.5rem;
 }
 
-.weather-request-form .submit-button:focus {
+.weather-form .submit-button:focus {
   border-color: var(--color-button-border-focus);
   outline: 1px solid var(--color-button-border-focus);
 }
 
-.weather-request-form .submit-button:hover {
+.weather-form .submit-button:hover {
   background-color: var(--color-button-bg-hover);
 }
