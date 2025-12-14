@@ -11,7 +11,7 @@ weatherRequestForm.init(document, handleWeatherRequestFormSubmit);
 
 async function handleWeatherRequestFormSubmit(location) {
     const weatherData = await getWeatherData(location);
-    console.log(weatherData);
+    weatherView.render(weatherData);
 }
 
 async function getWeatherData(location) {
