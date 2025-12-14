@@ -1,5 +1,7 @@
 import './style.css';
 
+import assert from '@/shared/assert.js';
+
 let container;
 let locationInput;
 let useFahrenheitInput;
@@ -17,14 +19,14 @@ function init(root, onSubmit) {
 
 function cacheElements(root) {
     container = root.querySelector("form[name='weather']");
-    validateElements({ container });
+    assert.elements({ container });
 
     locationInput = container.querySelector("[data-input='location']");
     useFahrenheitInput = container.querySelector(
         "[data-input='use-fahrenheit']",
     );
     getWeatherButton = container.querySelector("[data-action='get-weather']");
-    validateElements({ locationInput, useFahrenheitInput, getWeatherButton });
+    assert.elements({ locationInput, useFahrenheitInput, getWeatherButton });
 }
 
 function bindEvents() {
@@ -37,16 +39,6 @@ function handleSubmit(event) {
     const useFahrenheit = useFahrenheitInput.checked;
     const data = { location, useFahrenheit };
     handlers.onSubmit(data);
-}
-
-function validateElements(elementsObject) {
-    const missingElements = Object.entries(elementsObject)
-        .filter(([name, element]) => !element)
-        .map(([name, element]) => name);
-
-    if (missingElements.length > 0) {
-        throw new Error(`Element(s) not found: ${missingElements.join(', ')}`);
-    }
 }
 
 const weatherForm = {
