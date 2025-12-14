@@ -4,8 +4,14 @@ let container;
 let locationInput;
 let getWeatherButton;
 
-function init(root) {
+const handlers = {
+    onSubmit: undefined,
+};
+
+function init(root, onSubmit) {
     cacheElements(root);
+    handlers.onSubmit = onSubmit;
+    bindEvents();
 }
 
 function cacheElements(root) {
@@ -15,6 +21,16 @@ function cacheElements(root) {
     locationInput = container.querySelector("[data-input='location']");
     getWeatherButton = container.querySelector("[data-action='get-weather']");
     validateElements({ locationInput, getWeatherButton });
+}
+
+function bindEvents() {
+    container.addEventListener('submit', handleSubmit);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const location = locationInput.value;
+    handlers.onSubmit(location);
 }
 
 function validateElements(elementsObject) {

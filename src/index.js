@@ -5,7 +5,12 @@ import './styles/layout.css';
 import visualCrossingApiKey from './api-key.js';
 import weatherRequestForm from './weather-request-form.js';
 
-weatherRequestForm.init(document);
+weatherRequestForm.init(document, handleWeatherRequestFormSubmit);
+
+async function handleWeatherRequestFormSubmit(location) {
+    const weatherData = await getWeatherData(location);
+    console.log(weatherData);
+}
 
 async function getWeatherData(location) {
     const requestUrl = getWeatherApiRequestUrl(location);
