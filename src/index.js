@@ -1,6 +1,6 @@
-import './styles/reset.css';
-import './styles/colors.css';
-import './styles/layout.css';
+import '@/shared/styles/reset.css';
+import '@/shared/styles/colors.css';
+import '@/shared/styles/layout.css';
 
 import visualCrossingApiKey from './api-key.js';
 import weatherFormComponent from './weather-form/component.js';
