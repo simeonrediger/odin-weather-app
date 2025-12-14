@@ -1,3 +1,5 @@
+import './styles/weather-request-form.css';
+
 let container;
 let locationInput;
 let getWeatherButton;

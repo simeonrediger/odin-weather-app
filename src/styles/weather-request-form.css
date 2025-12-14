@@ -1,0 +1,26 @@
+.weather-request-form {
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: max-content 15rem;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.weather-request-form .field {
+  background-color: var(--color-field-bg);
+  border: 1px solid var(--color-field-border);
+  border-radius: 8px;
+  color: var(--color-field-text);
+  padding: 0.25rem 0.5rem;
+}
+
+.weather-request-form .submit-button {
+  background-color: var(--color-button-bg);
+  border: 1px solid var(--color-button-border);
+  border-radius: 8px;
+  color: var(--color-button-text);
+  grid-column: 1 / 3;
+  justify-self: end;
+  padding: 0.25rem 0.5rem;
+}

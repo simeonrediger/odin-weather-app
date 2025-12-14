@@ -5,6 +5,17 @@ html {
   --light-gray: #555;
   --white: #ccc;
 
+  --blue: #339;
+  --pale-blue: #559;
+
   --color-bg-primary: var(--dark-gray);
   --color-text-primary: var(--white);
+
+  --color-field-bg: var(--black);
+  --color-field-text: var(--white);
+  --color-field-border: var(--light-gray);
+
+  --color-button-bg: var(--blue);
+  --color-button-text: var(--white);
+  --color-button-border: var(--pale-blue);
 }
