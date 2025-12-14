@@ -8,4 +8,4 @@
 /TODO.md
 
 # Secrets
-/src/api-key.js
+/src/services/api-key.js
