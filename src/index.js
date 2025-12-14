@@ -15,9 +15,11 @@ weatherFormComponent.init(document, {
 
 async function handleWeatherFormSubmit(data, useFahrenheit) {
     const weatherData = await weatherService.getData(data.location);
+
     weatherState.location = weatherData.resolvedAddress;
     weatherState.useFahrenheit = useFahrenheit;
     weatherState.temperature = weatherData.currentConditions.temp;
+
     weatherComponent.render(
         weatherState.temperature,
         weatherState.useFahrenheit,
