@@ -17,20 +17,12 @@ function cacheElements(root) {
     assert.elements({ temperatureElement });
 }
 
-function render(weatherData, useFahrenheit) {
-    renderTemperature(weatherData.currentConditions.temp, useFahrenheit);
+function render(temperature, useFahrenheit) {
+    renderTemperature(temperature, useFahrenheit);
 }
 
-function renderTemperature(temperature, useFahrenheit = false) {
-    let unit = '°';
-
-    if (useFahrenheit) {
-        unit += 'F';
-    } else {
-        temperature = (temperature - 32) * (5 / 9);
-        unit += 'C';
-    }
-
+function renderTemperature(temperature, useFahrenheit) {
+    const unit = '°' + (useFahrenheit ? 'F' : 'C');
     temperature = Math.round(temperature);
     temperatureElement.textContent = temperature + unit;
 }

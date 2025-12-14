@@ -38,7 +38,7 @@ function handleSubmit(event) {
     const location = locationInput.value;
     const useFahrenheit = useFahrenheitInput.checked;
     const data = { location, useFahrenheit };
-    handlers.onSubmit(data);
+    handlers.onSubmit(data, useFahrenheit);
 }
 
 const weatherForm = {
