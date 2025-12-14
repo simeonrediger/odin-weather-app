@@ -7,7 +7,7 @@ function update(values) {
         location = values.location;
     }
 
-    if (values.useFahrenheit) {
+    if (values.useFahrenheit !== undefined) {
         useFahrenheit = Boolean(values.useFahrenheit);
     }
 
