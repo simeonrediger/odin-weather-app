@@ -8,7 +8,10 @@ import weatherService from './services/weather.js';
 import weatherState from './state/weather.js';
 
 weatherComponent.init(document);
-weatherFormComponent.init(document, handleWeatherFormSubmit);
+weatherFormComponent.init(document, {
+    onSubmit: handleWeatherFormSubmit,
+    onUseFahrenheitChange: handleUseFahrenheitChange,
+});
 
 async function handleWeatherFormSubmit(data, useFahrenheit) {
     const weatherData = await weatherService.getData(data.location);
@@ -16,6 +19,14 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
     weatherState.useFahrenheit = useFahrenheit;
     weatherState.temperature = weatherData.currentConditions.temp;
     weatherComponent.render(
+        weatherState.temperature,
+        weatherState.useFahrenheit,
+    );
+}
+
+function handleUseFahrenheitChange(useFahrenheit) {
+    weatherState.useFahrenheit = useFahrenheit;
+    weatherComponent.renderTemperature(
         weatherState.temperature,
         weatherState.useFahrenheit,
     );

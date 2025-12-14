@@ -30,6 +30,7 @@ function renderTemperature(temperature, useFahrenheit) {
 const weatherComponent = {
     init,
     render,
+    renderTemperature,
 };
 
 export default weatherComponent;

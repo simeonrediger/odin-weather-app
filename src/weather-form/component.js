@@ -9,11 +9,13 @@ let getWeatherButton;
 
 const handlers = {
     onSubmit: undefined,
+    onUseFahrenheitChange: undefined,
 };
 
-function init(root, onSubmit) {
+function init(root, { onSubmit, onUseFahrenheitChange }) {
     cacheElements(root);
     handlers.onSubmit = onSubmit;
+    handlers.onUseFahrenheitChange = onUseFahrenheitChange;
     bindEvents();
 }
 
@@ -31,6 +33,7 @@ function cacheElements(root) {
 
 function bindEvents() {
     container.addEventListener('submit', handleSubmit);
+    useFahrenheitInput.addEventListener('change', handleUseFahrenheitChange);
 }
 
 function handleSubmit(event) {
@@ -39,6 +42,11 @@ function handleSubmit(event) {
     const useFahrenheit = useFahrenheitInput.checked;
     const data = { location, useFahrenheit };
     handlers.onSubmit(data, useFahrenheit);
+}
+
+function handleUseFahrenheitChange() {
+    const useFahrenheit = useFahrenheitInput.checked;
+    handlers.onUseFahrenheitChange(useFahrenheit);
 }
 
 const weatherForm = {
