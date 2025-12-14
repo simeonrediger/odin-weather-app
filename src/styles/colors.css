@@ -13,6 +13,8 @@ html {
   --color-bg-primary: var(--dark-gray);
   --color-text-primary: var(--white);
 
+  --color-main-border: var(--gray);
+
   --color-field-bg: var(--black);
   --color-field-text: var(--white);
   --color-field-border: var(--light-gray);
