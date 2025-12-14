@@ -2,10 +2,15 @@
   width: 30rem;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .temperature {
   font-size: 5rem;
+}
+
+.location {
+  font-size: 1.5rem;
 }

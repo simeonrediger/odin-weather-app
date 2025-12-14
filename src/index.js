@@ -23,6 +23,7 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
     });
 
     weatherComponent.render({
+        location: weatherState.location,
         temperature: weatherState.temperature,
         useFahrenheit: weatherState.useFahrenheit,
     });

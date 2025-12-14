@@ -3,6 +3,7 @@ import './style.css';
 import assert from '@/shared/assert.js';
 
 let container;
+let locationElement;
 let temperatureElement;
 
 function init(root) {
@@ -13,12 +14,18 @@ function cacheElements(root) {
     container = root.querySelector("[data-role='weather']");
     assert.elements({ container });
 
+    locationElement = container.querySelector("[data-role='location']");
     temperatureElement = container.querySelector("[data-role='temperature']");
-    assert.elements({ temperatureElement });
+    assert.elements({ locationElement, temperatureElement });
 }
 
-function render({ temperature, useFahrenheit }) {
+function render({ location, temperature, useFahrenheit }) {
+    renderLocation({ location });
     renderTemperature({ temperature, useFahrenheit });
+}
+
+function renderLocation({ location }) {
+    locationElement.textContent = location;
 }
 
 function renderTemperature({ temperature, useFahrenheit }) {
