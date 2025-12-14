@@ -4,7 +4,7 @@ import '@/shared/styles/layout.css';
 
 import weatherComponent from './weather/component.js';
 import weatherFormComponent from './weather-form/component.js';
-import weatherService from './services/weather-service.js';
+import weatherService from './services/weather.js';
 
 weatherComponent.init(document);
 weatherFormComponent.init(document, handleWeatherFormSubmit);
