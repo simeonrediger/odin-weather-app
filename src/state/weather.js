@@ -2,17 +2,17 @@ let location;
 let useFahrenheit;
 let fahrenheitTemperature;
 
-function update(values) {
-    if (values.location) {
-        location = values.location;
+function update(data) {
+    if (data.location) {
+        location = data.location;
     }
 
-    if (values.useFahrenheit !== undefined) {
-        useFahrenheit = Boolean(values.useFahrenheit);
+    if (data.useFahrenheit !== undefined) {
+        useFahrenheit = Boolean(data.useFahrenheit);
     }
 
-    if (values.temperature) {
-        fahrenheitTemperature = values.temperature;
+    if (data.temperature) {
+        fahrenheitTemperature = data.temperature;
     }
 }
 
