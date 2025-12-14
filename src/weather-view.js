@@ -12,13 +12,22 @@ function cacheElements(root) {
     temperatureElement = container.querySelector("[data-role='temperature']");
 }
 
-function render(weatherData) {
-    renderTemperature(weatherData.currentConditions.temp);
+function render(weatherData, useFahrenheit) {
+    renderTemperature(weatherData.currentConditions.temp, useFahrenheit);
 }
 
-function renderTemperature(temperature) {
+function renderTemperature(temperature, useFahrenheit = false) {
+    let unit = '°';
+
+    if (useFahrenheit) {
+        unit += 'F';
+    } else {
+        temperature = (temperature - 32) * (5 / 9);
+        unit += 'C';
+    }
+
     temperature = Math.round(temperature);
-    temperatureElement.textContent = temperature + '°';
+    temperatureElement.textContent = temperature + unit;
 }
 
 const weatherView = {

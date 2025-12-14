@@ -34,7 +34,9 @@ function bindEvents() {
 function handleSubmit(event) {
     event.preventDefault();
     const location = locationInput.value;
-    handlers.onSubmit(location);
+    const useFahrenheit = useFahrenheitInput.checked;
+    const data = { location, useFahrenheit };
+    handlers.onSubmit(data);
 }
 
 function validateElements(elementsObject) {

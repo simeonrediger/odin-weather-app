@@ -9,9 +9,9 @@ import weatherView from './weather-view.js';
 weatherView.init(document);
 weatherRequestForm.init(document, handleWeatherRequestFormSubmit);
 
-async function handleWeatherRequestFormSubmit(location) {
-    const weatherData = await getWeatherData(location);
-    weatherView.render(weatherData);
+async function handleWeatherRequestFormSubmit(data) {
+    const weatherData = await getWeatherData(data.location);
+    weatherView.render(weatherData, data.useFahrenheit);
 }
 
 async function getWeatherData(location) {
