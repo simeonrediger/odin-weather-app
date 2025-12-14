@@ -3,8 +3,8 @@ import '@/shared/styles/colors.css';
 import '@/shared/styles/layout.css';
 
 import visualCrossingApiKey from './api-key.js';
-import weatherFormComponent from './weather-form/component.js';
 import weatherComponent from './weather/component.js';
+import weatherFormComponent from './weather-form/component.js';
 
 weatherComponent.init(document);
 weatherFormComponent.init(document, handleWeatherFormSubmit);
