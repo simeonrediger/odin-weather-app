@@ -5,6 +5,7 @@ import assert from '@/shared/assert.js';
 let container;
 let locationElement;
 let temperatureElement;
+let iconElement;
 
 function init(root) {
     cacheElements(root);
@@ -16,12 +17,14 @@ function cacheElements(root) {
 
     locationElement = container.querySelector("[data-role='location']");
     temperatureElement = container.querySelector("[data-role='temperature']");
-    assert.elements({ locationElement, temperatureElement });
+    iconElement = container.querySelector("[data-role='icon']");
+    assert.elements({ locationElement, temperatureElement, iconElement });
 }
 
-function render({ location, temperature, useFahrenheit }) {
+function render({ location, temperature, useFahrenheit, iconId }) {
     renderLocation({ location });
     renderTemperature({ temperature, useFahrenheit });
+    renderIcon({ iconId });
 }
 
 function renderLocation({ location }) {
@@ -32,6 +35,10 @@ function renderTemperature({ temperature, useFahrenheit }) {
     const unit = '°' + (useFahrenheit ? 'F' : 'C');
     temperature = Math.round(temperature);
     temperatureElement.textContent = temperature + unit;
+}
+
+function renderIcon({ iconId }) {
+    iconElement.textContent = iconId;
 }
 
 const weatherComponent = {

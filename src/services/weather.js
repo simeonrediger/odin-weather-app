@@ -12,7 +12,7 @@ async function getData(location) {
     const data = await response.json();
 
     const requiredData = extractKeys(data, [
-        ['currentConditions', ['temp']],
+        ['currentConditions', ['icon', 'temp']],
         'resolvedAddress',
         'timezone',
     ]);

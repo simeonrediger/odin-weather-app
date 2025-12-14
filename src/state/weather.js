@@ -1,6 +1,7 @@
 let location;
 let useFahrenheit;
 let fahrenheitTemperature;
+let iconId;
 
 function update(data) {
     if (data.location) {
@@ -13,6 +14,10 @@ function update(data) {
 
     if (data.temperature) {
         fahrenheitTemperature = data.temperature;
+    }
+
+    if (data.iconId) {
+        iconId = data.iconId;
     }
 }
 
@@ -34,6 +39,10 @@ const weatherState = {
             const celsiusTemperature = (fahrenheitTemperature - 32) * (5 / 9);
             return celsiusTemperature;
         }
+    },
+
+    get iconId() {
+        return iconId;
     },
 };
 

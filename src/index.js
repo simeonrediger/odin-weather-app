@@ -20,12 +20,14 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
         useFahrenheit,
         location: weatherData.resolvedAddress,
         temperature: weatherData.currentConditions.temp,
+        iconId: weatherData.currentConditions.icon,
     });
 
     weatherComponent.render({
         location: weatherState.location,
         temperature: weatherState.temperature,
         useFahrenheit: weatherState.useFahrenheit,
+        iconId: weatherState.iconId,
     });
 }
 
