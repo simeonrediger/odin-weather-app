@@ -16,9 +16,11 @@ weatherFormComponent.init(document, {
 async function handleWeatherFormSubmit(data, useFahrenheit) {
     const weatherData = await weatherService.getData(data.location);
 
-    weatherState.location = weatherData.resolvedAddress;
-    weatherState.useFahrenheit = useFahrenheit;
-    weatherState.temperature = weatherData.currentConditions.temp;
+    weatherState.update({
+        useFahrenheit,
+        location: weatherData.resolvedAddress,
+        temperature: weatherData.currentConditions.temp,
+    });
 
     weatherComponent.render(
         weatherState.temperature,
@@ -27,7 +29,8 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
 }
 
 function handleUseFahrenheitChange(useFahrenheit) {
-    weatherState.useFahrenheit = useFahrenheit;
+    weatherState.update({ useFahrenheit });
+
     weatherComponent.renderTemperature(
         weatherState.temperature,
         weatherState.useFahrenheit,
