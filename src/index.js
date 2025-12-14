@@ -10,7 +10,7 @@ import weatherState from './state/weather.js';
 weatherComponent.init(document);
 weatherFormComponent.init(document, {
     onSubmit: handleWeatherFormSubmit,
-    onUseFahrenheitChange: handleUseFahrenheitChange,
+    onTemperatureUnitChange: handleTemperatureUnitChange,
 });
 
 async function handleWeatherFormSubmit(data, useFahrenheit) {
@@ -28,7 +28,7 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
     });
 }
 
-function handleUseFahrenheitChange(useFahrenheit) {
+function handleTemperatureUnitChange(useFahrenheit) {
     weatherState.update({ useFahrenheit });
 
     weatherComponent.renderTemperature({
