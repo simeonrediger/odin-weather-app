@@ -7,11 +7,11 @@
   align-items: center;
 }
 
-.temperature {
+.weather .temperature {
   font-size: 5rem;
 }
 
-.location {
+.weather .location {
   font-size: 1.5rem;
   text-align: center;
 }
