@@ -1,3 +1,7 @@
 .weather-view {
   width: 30rem;
 }
+
+.temperature {
+  font-size: 5rem;
+}
