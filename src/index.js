@@ -5,22 +5,17 @@ import './styles/layout.css';
 import visualCrossingApiKey from './api-key.js';
 import weatherRequestForm from './weather-request-form.js';
 
-import demoData from './demo-data.json';
-
 weatherRequestForm.init(document);
-const weatherData = await getWeatherData('Boston');
-console.log(weatherData);
 
 async function getWeatherData(location) {
-    // const requestUrl = getWeatherApiRequestUrl(location);
-    // const response = await fetch(requestUrl);
+    const requestUrl = getWeatherApiRequestUrl(location);
+    const response = await fetch(requestUrl);
 
-    // if (!response.ok) {
-    //     await handleBadReponse(response);
-    // }
+    if (!response.ok) {
+        await handleBadReponse(response);
+    }
 
-    // const data = await response.json();
-    const data = demoData;
+    const data = await response.json();
 
     const requiredData = extractKeys(data, [
         ['currentConditions', ['temp']],
