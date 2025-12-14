@@ -17,6 +17,7 @@ function render(weatherData) {
 }
 
 function renderTemperature(temperature) {
+    temperature = Math.round(temperature);
     temperatureElement.textContent = temperature + '°';
 }
 
