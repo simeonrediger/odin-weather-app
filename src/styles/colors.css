@@ -22,4 +22,5 @@ html {
   --color-button-bg-hover: var(--less-pale-blue);
   --color-button-text: var(--white);
   --color-button-border: var(--pale-blue);
+  --color-button-border-focus: var(--light-blue);
 }

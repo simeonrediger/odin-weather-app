@@ -30,6 +30,11 @@
   padding: 0.25rem 0.5rem;
 }
 
+.weather-request-form .submit-button:focus {
+  border-color: var(--color-button-border-focus);
+  outline: 1px solid var(--color-button-border-focus);
+}
+
 .weather-request-form .submit-button:hover {
   background-color: var(--color-button-bg-hover);
 }
