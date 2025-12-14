@@ -22,17 +22,17 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
         temperature: weatherData.currentConditions.temp,
     });
 
-    weatherComponent.render(
-        weatherState.temperature,
-        weatherState.useFahrenheit,
-    );
+    weatherComponent.render({
+        temperature: weatherState.temperature,
+        useFahrenheit: weatherState.useFahrenheit,
+    });
 }
 
 function handleUseFahrenheitChange(useFahrenheit) {
     weatherState.update({ useFahrenheit });
 
-    weatherComponent.renderTemperature(
-        weatherState.temperature,
-        weatherState.useFahrenheit,
-    );
+    weatherComponent.renderTemperature({
+        temperature: weatherState.temperature,
+        useFahrenheit: weatherState.useFahrenheit,
+    });
 }

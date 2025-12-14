@@ -17,11 +17,11 @@ function cacheElements(root) {
     assert.elements({ temperatureElement });
 }
 
-function render(temperature, useFahrenheit) {
-    renderTemperature(temperature, useFahrenheit);
+function render({ temperature, useFahrenheit }) {
+    renderTemperature({ temperature, useFahrenheit });
 }
 
-function renderTemperature(temperature, useFahrenheit) {
+function renderTemperature({ temperature, useFahrenheit }) {
     const unit = '°' + (useFahrenheit ? 'F' : 'C');
     temperature = Math.round(temperature);
     temperatureElement.textContent = temperature + unit;
