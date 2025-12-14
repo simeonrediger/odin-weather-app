@@ -8,6 +8,7 @@ html {
   --blue: #339;
   --light-blue: #66f;
   --pale-blue: #559;
+  --less-pale-blue: #449;
 
   --color-bg-primary: var(--dark-gray);
   --color-text-primary: var(--white);
@@ -18,6 +19,7 @@ html {
   --color-field-border-focus: var(--light-blue);
 
   --color-button-bg: var(--blue);
+  --color-button-bg-hover: var(--less-pale-blue);
   --color-button-text: var(--white);
   --color-button-border: var(--pale-blue);
 }

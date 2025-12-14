@@ -29,3 +29,7 @@
   justify-self: end;
   padding: 0.25rem 0.5rem;
 }
+
+.weather-request-form .submit-button:hover {
+  background-color: var(--color-button-bg-hover);
+}
