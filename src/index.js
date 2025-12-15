@@ -48,7 +48,6 @@ function handleTemperatureUnitChange(useFahrenheit) {
 function inferDefaults(fallbackLocation = 'Boston') {
     const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const useFahrenheit = fahrenheitTimezones.includes(systemTimezone);
-
     let location;
 
     if (systemTimezone.includes('/')) {
