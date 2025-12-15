@@ -3,8 +3,8 @@ import '@/shared/styles/colors.css';
 import '@/shared/styles/layout.css';
 
 import defaults from './utils/defaults.js';
-import weatherComponent from './components/weather/component.js';
-import weatherFormComponent from './components/weather-form/component.js';
+import weatherComponent from './features/weather/components/weather/component.js';
+import weatherFormComponent from './features/weather/components/weather-form/component.js';
 import weatherService from './features/weather/service.js';
 import weatherState from './features/weather/state.js';
 
