@@ -38,7 +38,7 @@ function renderTemperature({ temperature, useFahrenheit }) {
 }
 
 async function renderIcon({ iconId }) {
-    const { default: icon } = await import(`../icons/${iconId}.svg`);
+    const { default: icon } = await import(`./icons/${iconId}.svg`);
     iconElement.src = icon;
 }
 

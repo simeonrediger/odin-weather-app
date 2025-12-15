@@ -2,8 +2,8 @@ import '@/shared/styles/reset.css';
 import '@/shared/styles/colors.css';
 import '@/shared/styles/layout.css';
 
-import weatherComponent from './weather/component.js';
-import weatherFormComponent from './weather-form/component.js';
+import weatherComponent from './components/weather/component.js';
+import weatherFormComponent from './components/weather-form/component.js';
 import weatherService from './services/weather.js';
 import weatherState from './state/weather.js';
 
