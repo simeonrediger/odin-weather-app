@@ -45,11 +45,8 @@ const weatherState = {
     },
 
     get isComplete() {
-        return (
-            location &&
-            useFahrenheit !== undefined &&
-            fahrenheitTemperature &&
-            iconId
+        return [location, useFahrenheit, fahrenheitTemperature, iconId].all(
+            value => value != undefined,
         );
     },
 };
