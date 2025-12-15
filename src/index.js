@@ -2,18 +2,17 @@ import '@/shared/styles/reset.css';
 import '@/shared/styles/colors.css';
 import '@/shared/styles/layout.css';
 
+import defaults from './utils/defaults.js';
 import weatherComponent from './components/weather/component.js';
 import weatherFormComponent from './components/weather-form/component.js';
 import weatherService from './services/weather.js';
 import weatherState from './state/weather.js';
 
-import fahrenheitTimezones from './data/fahrenheit-timezones.json';
-
 weatherComponent.init(document);
 weatherFormComponent.init(document, {
     onSubmit: handleWeatherFormSubmit,
     onTemperatureUnitChange: handleTemperatureUnitChange,
-    defaults: inferDefaults(),
+    defaults: defaults.infer('Boston'),
 });
 
 async function handleWeatherFormSubmit(data, useFahrenheit) {
@@ -43,20 +42,4 @@ function handleTemperatureUnitChange(useFahrenheit) {
             useFahrenheit: weatherState.useFahrenheit,
         });
     }
-}
-
-function inferDefaults(fallbackLocation = 'Boston') {
-    const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const useFahrenheit = fahrenheitTimezones.includes(systemTimezone);
-    let location;
-
-    if (systemTimezone.includes('/')) {
-        const timezoneParts = systemTimezone.split('/');
-        const lastTimezonePart = timezoneParts[timezoneParts.length - 1];
-        location = lastTimezonePart.replaceAll('_', ' ');
-    } else {
-        location = fallbackLocation;
-    }
-
-    return { location, useFahrenheit };
 }
