@@ -13,7 +13,7 @@ weatherComponent.init(document);
 weatherFormComponent.init(document, {
     onSubmit: handleWeatherFormSubmit,
     onTemperatureUnitChange: handleTemperatureUnitChange,
-    defaults: getDefaults(),
+    defaults: inferDefaults(),
 });
 
 async function handleWeatherFormSubmit(data, useFahrenheit) {
@@ -45,7 +45,7 @@ function handleTemperatureUnitChange(useFahrenheit) {
     }
 }
 
-function getDefaults(fallbackLocation = 'Boston') {
+function inferDefaults(fallbackLocation = 'Boston') {
     const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const useFahrenheit = fahrenheitTimezones.includes(systemTimezone);
 
