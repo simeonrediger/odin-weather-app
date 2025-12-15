@@ -18,9 +18,9 @@ async function handleFormSubmit(data, useFahrenheit) {
     const weatherData = await service.getData(data.location);
 
     state.update({
-        useFahrenheit,
         location: weatherData.resolvedAddress,
         temperature: weatherData.currentConditions.temp,
+        useFahrenheit,
         iconId: weatherData.currentConditions.icon,
     });
 

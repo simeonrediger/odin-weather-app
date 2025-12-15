@@ -1,6 +1,6 @@
 let location;
-let useFahrenheit;
 let fahrenheitTemperature;
+let useFahrenheit;
 let iconId;
 
 function update(data) {
@@ -8,12 +8,12 @@ function update(data) {
         location = data.location;
     }
 
-    if (data.useFahrenheit !== undefined) {
-        useFahrenheit = Boolean(data.useFahrenheit);
-    }
-
     if (data.temperature !== undefined) {
         fahrenheitTemperature = Number(data.temperature);
+    }
+
+    if (data.useFahrenheit !== undefined) {
+        useFahrenheit = Boolean(data.useFahrenheit);
     }
 
     if (data.iconId !== undefined) {
@@ -32,12 +32,12 @@ const weatherState = {
         return location;
     },
 
-    get useFahrenheit() {
-        return useFahrenheit;
-    },
-
     get temperature() {
         return useFahrenheit ? fahrenheitTemperature : getCelsiusTemperature();
+    },
+
+    get useFahrenheit() {
+        return useFahrenheit;
     },
 
     get iconId() {
