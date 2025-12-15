@@ -4,7 +4,7 @@ let fahrenheitTemperature;
 let iconId;
 
 function update(data) {
-    if (data.location) {
+    if (data.location !== undefined) {
         location = data.location;
     }
 
@@ -16,7 +16,7 @@ function update(data) {
         fahrenheitTemperature = Number(data.temperature);
     }
 
-    if (data.iconId) {
+    if (data.iconId !== undefined) {
         iconId = data.iconId;
     }
 }
