@@ -6,6 +6,3 @@
 
 # Dev files
 /TODO.md
-
-# Secrets
-/src/features/weather/api-key.js

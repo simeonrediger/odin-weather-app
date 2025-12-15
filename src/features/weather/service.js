@@ -1,4 +1,4 @@
-import visualCrossingApiKey from './api-key.js';
+const visualCrossingApiKey = 'LKLZKMSAFFC85UJ29CC5TKVGY';
 
 async function getData(location) {
     location = formatLocationToTriggerCanonicalization(location);
