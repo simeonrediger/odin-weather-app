@@ -37,9 +37,41 @@ function getRequestUrl(location) {
     return requestUrl;
 }
 
+// Visual Crossing HTTP error codes: https://www.visualcrossing.com/resources/documentation/weather-api/http-error-codes/
 async function handleBadReponse(response) {
-    const errorMessage = await response.text();
-    throw new Error(errorMessage);
+    let responseText = await response.text();
+    console.error(response.status, responseText);
+
+    let cause;
+    switch (response.status) {
+        case 400:
+            cause = getBadRequestReason(responseText);
+            break;
+        case 401:
+            cause = 'Site not authorized to make requests';
+            break;
+        case 404:
+            cause = 'Weather server endpoint not found';
+            break;
+        case 429:
+            cause = 'Daily request limit reached';
+            break;
+        case 500:
+            cause = 'Weather server error';
+            break;
+        default:
+            cause = '';
+    }
+
+    throw new Error(response.status, { cause });
+}
+
+function getBadRequestReason(responseText) {
+    if (responseText.includes('No valid locations')) {
+        return weatherService.INVALID_LOCATION;
+    } else {
+        return 'Unexpected error occurred';
+    }
 }
 
 function extractKeys(data, keys) {
@@ -78,6 +110,7 @@ function extractKeys(data, keys) {
 
 const weatherService = {
     getData,
+    INVALID_LOCATION: 'Invalid location',
 };
 
 export default weatherService;
