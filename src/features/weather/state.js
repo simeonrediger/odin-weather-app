@@ -15,7 +15,7 @@ function update(data) {
     }
 
     if (data.temperature) {
-        fahrenheitTemperature = data.temperature;
+        fahrenheitTemperature = Number(data.temperature);
     }
 
     if (data.iconId) {
