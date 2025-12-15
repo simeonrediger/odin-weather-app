@@ -5,7 +5,7 @@ import '@/shared/styles/layout.css';
 import defaults from './utils/defaults.js';
 import weatherComponent from './components/weather/component.js';
 import weatherFormComponent from './components/weather-form/component.js';
-import weatherService from './services/weather.js';
+import weatherService from './features/weather/service.js';
 import weatherState from './state/weather.js';
 
 weatherComponent.init(document);

@@ -8,4 +8,4 @@
 /TODO.md
 
 # Secrets
-/src/services/api-key.js
+/src/features/weather/api-key.js
