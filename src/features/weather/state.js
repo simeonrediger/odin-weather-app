@@ -3,8 +3,6 @@ let useFahrenheit;
 let fahrenheitTemperature;
 let iconId;
 
-let isComplete = false;
-
 function update(data) {
     if (data.location) {
         location = data.location;
@@ -21,12 +19,6 @@ function update(data) {
     if (data.iconId) {
         iconId = data.iconId;
     }
-
-    isComplete =
-        location &&
-        useFahrenheit !== undefined &&
-        fahrenheitTemperature &&
-        iconId;
 }
 
 function getCelsiusTemperature() {
@@ -53,7 +45,12 @@ const weatherState = {
     },
 
     get isComplete() {
-        return isComplete;
+        return (
+            location &&
+            useFahrenheit !== undefined &&
+            fahrenheitTemperature &&
+            iconId
+        );
     },
 };
 
