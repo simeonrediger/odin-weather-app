@@ -45,7 +45,7 @@ const weatherState = {
     },
 
     get isComplete() {
-        return [location, useFahrenheit, fahrenheitTemperature, iconId].all(
+        return [location, useFahrenheit, fahrenheitTemperature, iconId].every(
             value => value != undefined,
         );
     },
