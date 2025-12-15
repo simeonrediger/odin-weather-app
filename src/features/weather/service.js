@@ -44,28 +44,29 @@ async function handleBadReponse(response) {
     let responseText = await response.text();
     console.error(response.status, responseText);
 
-    let cause;
+    let description;
     switch (response.status) {
         case 400:
-            cause = getBadRequestReason(responseText);
+            description = getBadRequestReason(responseText);
             break;
         case 401:
-            cause = 'Site not authorized to make requests';
+            description = 'Site not authorized to make requests';
             break;
         case 404:
-            cause = 'Weather server endpoint not found';
+            description = 'Weather server endpoint not found';
             break;
         case 429:
-            cause = 'Daily request limit reached';
+            description = 'Daily request limit reached';
             break;
         case 500:
-            cause = 'Weather server error';
+            description = 'Weather server error';
             break;
         default:
-            cause = '';
+            description = '';
     }
 
-    throw new Error(response.status, { cause });
+    const message = `${response.status}: ${description}`;
+    throw new Error(message, { cause: responseText });
 }
 
 function getBadRequestReason(responseText) {
