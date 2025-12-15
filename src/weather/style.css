@@ -1,4 +1,5 @@
 .weather {
+  height: 16rem;
   width: 30rem;
 
   display: flex;
