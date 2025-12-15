@@ -29,6 +29,10 @@ function update(data) {
         iconId;
 }
 
+function getCelsiusTemperature() {
+    return (fahrenheitTemperature - 32) * (5 / 9);
+}
+
 const weatherState = {
     update,
 
@@ -41,12 +45,7 @@ const weatherState = {
     },
 
     get temperature() {
-        if (useFahrenheit) {
-            return fahrenheitTemperature;
-        } else {
-            const celsiusTemperature = (fahrenheitTemperature - 32) * (5 / 9);
-            return celsiusTemperature;
-        }
+        return useFahrenheit ? fahrenheitTemperature : getCelsiusTemperature();
     },
 
     get iconId() {
