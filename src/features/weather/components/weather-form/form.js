@@ -19,7 +19,7 @@ function init(root, { onSubmit, onTemperatureUnitChange, defaults }) {
     bindEvents();
 
     if (defaults) {
-        setDefaults(defaults);
+        applyDefaults(defaults);
         submit();
     }
 }
@@ -57,7 +57,7 @@ function submit() {
     handlers.onSubmit(location, useFahrenheit);
 }
 
-function setDefaults({ location, useFahrenheit }) {
+function applyDefaults({ location, useFahrenheit }) {
     if (location) {
         locationInput.value = location;
     }
