@@ -57,7 +57,7 @@ function submit() {
     handlers.onSubmit(location, useFahrenheit);
 }
 
-function setDefaults({ location, useFahrenheit } = {}) {
+function setDefaults({ location, useFahrenheit }) {
     if (location) {
         locationInput.value = location;
     }
