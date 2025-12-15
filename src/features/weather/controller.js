@@ -10,7 +10,7 @@ function init(root) {
     form.init(root, {
         onSubmit: handleWeatherFormSubmit,
         onTemperatureUnitChange: handleTemperatureUnitChange,
-        defaults: defaults.infer('Boston'),
+        defaults: defaults.inferFromTimezone('Boston'),
     });
 }
 

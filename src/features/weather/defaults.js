@@ -1,6 +1,6 @@
 import fahrenheitTimezones from '@/data/fahrenheit-timezones.json';
 
-function infer(fallbackLocation) {
+function inferFromTimezone(fallbackLocation) {
     const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const useFahrenheit = fahrenheitTimezones.includes(systemTimezone);
     let location;
@@ -17,7 +17,7 @@ function infer(fallbackLocation) {
 }
 
 const defaults = {
-    infer,
+    inferFromTimezone,
 };
 
 export default defaults;
