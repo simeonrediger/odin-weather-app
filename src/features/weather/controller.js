@@ -8,13 +8,13 @@ function init(root) {
     view.init(root);
 
     form.init(root, {
-        onSubmit: handleWeatherFormSubmit,
+        onSubmit: handleFormSubmit,
         onTemperatureUnitChange: handleTemperatureUnitChange,
         defaults: defaults.inferFromTimezone('Boston'),
     });
 }
 
-async function handleWeatherFormSubmit(data, useFahrenheit) {
+async function handleFormSubmit(data, useFahrenheit) {
     const weatherData = await service.getData(data.location);
 
     state.update({
