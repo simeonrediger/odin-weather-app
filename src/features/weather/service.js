@@ -62,7 +62,7 @@ async function handleBadReponse(response) {
             description = 'Weather server error';
             break;
         default:
-            description = '';
+            description = 'Unexpected error occurred';
     }
 
     const message = `${response.status}: ${description}`;
