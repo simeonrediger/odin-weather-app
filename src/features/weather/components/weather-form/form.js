@@ -17,7 +17,11 @@ function init(root, { onSubmit, onTemperatureUnitChange, defaults }) {
     handlers.onSubmit = onSubmit;
     handlers.onTemperatureUnitChange = onTemperatureUnitChange;
     bindEvents();
-    setDefaults(defaults);
+
+    if (defaults) {
+        setDefaults(defaults);
+        submit();
+    }
 }
 
 function cacheElements(root) {
@@ -60,10 +64,6 @@ function setDefaults({ location, useFahrenheit } = {}) {
 
     if (useFahrenheit !== undefined) {
         useFahrenheitInput.checked = useFahrenheit;
-    }
-
-    if (location || useFahrenheit !== undefined) {
-        submit();
     }
 }
 
