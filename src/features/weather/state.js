@@ -12,7 +12,7 @@ function update(data) {
         useFahrenheit = Boolean(data.useFahrenheit);
     }
 
-    if (data.temperature) {
+    if (data.temperature !== undefined) {
         fahrenheitTemperature = Number(data.temperature);
     }
 
