@@ -1,4 +1,5 @@
 .weather-form {
+  align-self: center;
   padding: 1rem;
 
   display: grid;
