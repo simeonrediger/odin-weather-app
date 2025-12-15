@@ -3,6 +3,8 @@ let useFahrenheit;
 let fahrenheitTemperature;
 let iconId;
 
+let isComplete = false;
+
 function update(data) {
     if (data.location) {
         location = data.location;
@@ -19,6 +21,12 @@ function update(data) {
     if (data.iconId) {
         iconId = data.iconId;
     }
+
+    isComplete =
+        location &&
+        useFahrenheit !== undefined &&
+        fahrenheitTemperature &&
+        iconId;
 }
 
 const weatherState = {
@@ -43,6 +51,10 @@ const weatherState = {
 
     get iconId() {
         return iconId;
+    },
+
+    get isComplete() {
+        return isComplete;
     },
 };
 

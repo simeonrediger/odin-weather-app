@@ -34,8 +34,10 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
 function handleTemperatureUnitChange(useFahrenheit) {
     weatherState.update({ useFahrenheit });
 
-    weatherComponent.renderTemperature({
-        temperature: weatherState.temperature,
-        useFahrenheit: weatherState.useFahrenheit,
-    });
+    if (weatherState.isComplete) {
+        weatherComponent.renderTemperature({
+            temperature: weatherState.temperature,
+            useFahrenheit: weatherState.useFahrenheit,
+        });
+    }
 }
