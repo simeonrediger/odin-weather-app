@@ -1,13 +1,13 @@
 import defaults from '@/utils/defaults.js';
-import component from './components/weather/component.js';
-import formComponent from './components/weather-form/component.js';
+import view from './components/weather-view/view.js';
+import form from './components/weather-form/form.js';
 import service from './service.js';
 import state from './state.js';
 
 function init(root) {
-    component.init(root);
+    view.init(root);
 
-    formComponent.init(root, {
+    form.init(root, {
         onSubmit: handleWeatherFormSubmit,
         onTemperatureUnitChange: handleTemperatureUnitChange,
         defaults: defaults.infer('Boston'),
@@ -24,7 +24,7 @@ async function handleWeatherFormSubmit(data, useFahrenheit) {
         iconId: weatherData.currentConditions.icon,
     });
 
-    component.render({
+    view.render({
         location: state.location,
         temperature: state.temperature,
         useFahrenheit: state.useFahrenheit,
@@ -36,7 +36,7 @@ function handleTemperatureUnitChange(useFahrenheit) {
     state.update({ useFahrenheit });
 
     if (state.isComplete) {
-        component.renderTemperature({
+        view.renderTemperature({
             temperature: state.temperature,
             useFahrenheit: state.useFahrenheit,
         });
