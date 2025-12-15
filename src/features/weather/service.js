@@ -20,7 +20,7 @@ async function getData(location) {
     return requiredData;
 }
 
-// Fragile hack to force Visual Crossing to return a formatted resolvedAddress
+// Fragile hack to cause Visual Crossing to return a formatted resolvedAddress
 function formatLocationToTriggerCanonicalization(location) {
     return '-' + location;
 }
