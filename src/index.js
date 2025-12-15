@@ -7,6 +7,8 @@ import weatherFormComponent from './weather-form/component.js';
 import weatherService from './services/weather.js';
 import weatherState from './state/weather.js';
 
+import fahrenheitTimezones from './fahrenheit-timezones.json';
+
 weatherComponent.init(document);
 weatherFormComponent.init(document, {
     onSubmit: handleWeatherFormSubmit,
@@ -14,6 +16,7 @@ weatherFormComponent.init(document, {
 
     defaults: {
         location: getDefaultLocation(),
+        useFahrenheit: getDefaultUseFahrenheit(),
     },
 });
 
@@ -56,4 +59,9 @@ function getDefaultLocation(fallback = 'Boston') {
     const timezoneParts = systemTimezone.split('/');
     const lastTimezonePart = timezoneParts[timezoneParts.length - 1];
     return lastTimezonePart.replaceAll('_', ' ');
+}
+
+function getDefaultUseFahrenheit() {
+    const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return fahrenheitTimezones.includes(systemTimezone);
 }

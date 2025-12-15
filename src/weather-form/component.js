@@ -60,7 +60,7 @@ function setDefaults({ location, useFahrenheit } = {}) {
     }
 
     if (useFahrenheit !== undefined) {
-        useFahrenheit.checked = useFahrenheit;
+        useFahrenheitInput.checked = useFahrenheit;
     }
 
     if (location || useFahrenheit !== undefined) {
