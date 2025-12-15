@@ -42,29 +42,28 @@ function getRequestUrl(location) {
 // Visual Crossing HTTP error codes: https://www.visualcrossing.com/resources/documentation/weather-api/http-error-codes/
 async function handleBadReponse(response) {
     let responseText = await response.text();
-    let description;
+    let message;
 
     switch (response.status) {
         case 400:
-            description = getBadRequestDescription(responseText);
+            message = getBadRequestDescription(responseText);
             break;
         case 401:
-            description = 'Site not authorized to make requests';
+            message = 'Site not authorized to make requests';
             break;
         case 404:
-            description = 'Weather server endpoint not found';
+            message = 'Weather server endpoint not found';
             break;
         case 429:
-            description = 'Daily request limit reached';
+            message = 'Daily request limit reached';
             break;
         case 500:
-            description = 'Weather server error';
+            message = 'Weather server error';
             break;
         default:
-            description = 'Unexpected error occurred';
+            message = 'Unexpected error occurred';
     }
 
-    const message = `${response.status}: ${description}`;
     throw new Error(message, { cause: responseText });
 }
 
