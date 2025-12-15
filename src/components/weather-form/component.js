@@ -1,6 +1,6 @@
 import './style.css';
 
-import assert from '@/shared/assert.js';
+import assert from '@/utils/assert.js';
 
 let container;
 let locationInput;
