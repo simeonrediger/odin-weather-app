@@ -42,8 +42,8 @@ function getRequestUrl(location) {
 // Visual Crossing HTTP error codes: https://www.visualcrossing.com/resources/documentation/weather-api/http-error-codes/
 async function handleBadReponse(response) {
     let responseText = await response.text();
-
     let description;
+
     switch (response.status) {
         case 400:
             description = getBadRequestDescription(responseText);
