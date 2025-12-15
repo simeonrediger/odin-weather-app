@@ -32,7 +32,6 @@
   border-radius: 8px;
   color: var(--color-button-text);
   grid-column: 1 / 3;
-  justify-self: end;
   padding: 0.25rem 0.5rem;
 }
 
