@@ -1,8 +1,8 @@
 import defaults from './defaults.js';
-import view from './components/weather-view/view.js';
 import form from './components/weather-form/form.js';
 import service from './service.js';
 import state from './state.js';
+import view from './components/weather-view/view.js';
 
 function init(root) {
     view.init(root);
