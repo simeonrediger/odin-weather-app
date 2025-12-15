@@ -13,11 +13,7 @@ weatherComponent.init(document);
 weatherFormComponent.init(document, {
     onSubmit: handleWeatherFormSubmit,
     onTemperatureUnitChange: handleTemperatureUnitChange,
-
-    defaults: {
-        location: getDefaultLocation(),
-        useFahrenheit: getDefaultUseFahrenheit(),
-    },
+    defaults: getDefaults(),
 });
 
 async function handleWeatherFormSubmit(data, useFahrenheit) {
@@ -49,19 +45,19 @@ function handleTemperatureUnitChange(useFahrenheit) {
     }
 }
 
-function getDefaultLocation(fallback = 'Boston') {
+function getDefaults(fallbackLocation = 'Boston') {
     const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const useFahrenheit = fahrenheitTimezones.includes(systemTimezone);
 
-    if (!systemTimezone.includes('/')) {
-        return fallback;
+    let location;
+
+    if (systemTimezone.includes('/')) {
+        const timezoneParts = systemTimezone.split('/');
+        const lastTimezonePart = timezoneParts[timezoneParts.length - 1];
+        location = lastTimezonePart.replaceAll('_', ' ');
+    } else {
+        location = fallbackLocation;
     }
 
-    const timezoneParts = systemTimezone.split('/');
-    const lastTimezonePart = timezoneParts[timezoneParts.length - 1];
-    return lastTimezonePart.replaceAll('_', ' ');
-}
-
-function getDefaultUseFahrenheit() {
-    const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    return fahrenheitTimezones.includes(systemTimezone);
+    return { location, useFahrenheit };
 }
