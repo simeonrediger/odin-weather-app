@@ -12,11 +12,12 @@ const handlers = {
     onTemperatureUnitChange: undefined,
 };
 
-function init(root, { onSubmit, onTemperatureUnitChange }) {
+function init(root, { onSubmit, onTemperatureUnitChange, defaults }) {
     cacheElements(root);
     handlers.onSubmit = onSubmit;
     handlers.onTemperatureUnitChange = onTemperatureUnitChange;
     bindEvents();
+    setDefaults(defaults);
 }
 
 function cacheElements(root) {
@@ -38,15 +39,33 @@ function bindEvents() {
 
 function handleSubmit(event) {
     event.preventDefault();
+    submit();
+}
+
+function handleTemperatureUnitChange() {
+    const useFahrenheit = useFahrenheitInput.checked;
+    handlers.onTemperatureUnitChange(useFahrenheit);
+}
+
+function submit() {
     const location = locationInput.value;
     const useFahrenheit = useFahrenheitInput.checked;
     const data = { location, useFahrenheit };
     handlers.onSubmit(data, useFahrenheit);
 }
 
-function handleTemperatureUnitChange() {
-    const useFahrenheit = useFahrenheitInput.checked;
-    handlers.onTemperatureUnitChange(useFahrenheit);
+function setDefaults({ location, useFahrenheit } = {}) {
+    if (location) {
+        locationInput.value = location;
+    }
+
+    if (useFahrenheit !== undefined) {
+        useFahrenheit.checked = useFahrenheit;
+    }
+
+    if (location || useFahrenheit !== undefined) {
+        submit();
+    }
 }
 
 const weatherForm = {
