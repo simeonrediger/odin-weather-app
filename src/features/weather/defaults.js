@@ -1,4 +1,4 @@
-import fahrenheitTimezones from './fahrenheit-timezones.json';
+import fahrenheitTimezones from './data/fahrenheit-timezones.json';
 
 function inferFromTimezone(fallbackLocation) {
     const systemTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
