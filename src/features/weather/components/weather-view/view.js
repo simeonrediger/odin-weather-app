@@ -12,7 +12,7 @@ function init(root) {
 }
 
 function cacheElements(root) {
-    container = root.querySelector("[data-role='weather']");
+    container = root.querySelector("[data-role='weather-view']");
     assert.elements({ container });
 
     locationElement = container.querySelector("[data-role='location']");

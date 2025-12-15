@@ -1,4 +1,4 @@
-.weather {
+.weather-view {
   height: 16rem;
   width: 30rem;
 
@@ -9,13 +9,13 @@
   gap: 1rem;
 }
 
-.weather .location {
+.weather-view .location {
   font-size: 1.5rem;
   line-height: 1.5rem;
   text-align: center;
 }
 
-.weather .temperature {
+.weather-view .temperature {
   font-size: 5rem;
   line-height: 5rem;
 }
