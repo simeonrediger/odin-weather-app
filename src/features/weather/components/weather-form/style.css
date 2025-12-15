@@ -9,7 +9,7 @@
   align-items: baseline;
 }
 
-.weather-form .field {
+.weather-form .text-field {
   background-color: var(--color-field-bg);
   border: 1px solid var(--color-field-border);
   border-radius: 8px;
@@ -21,7 +21,7 @@
   justify-self: start;
 }
 
-.weather-form .field:focus {
+.weather-form .text-field:focus {
   border-color: var(--color-field-border-focus);
   outline: 1px solid var(--color-field-border-focus);
 }
