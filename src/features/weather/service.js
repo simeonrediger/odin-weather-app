@@ -47,7 +47,7 @@ async function handleBadReponse(response) {
     let description;
     switch (response.status) {
         case 400:
-            description = getBadRequestReason(responseText);
+            description = getBadRequestDescription(responseText);
             break;
         case 401:
             description = 'Site not authorized to make requests';
@@ -69,7 +69,7 @@ async function handleBadReponse(response) {
     throw new Error(message, { cause: responseText });
 }
 
-function getBadRequestReason(responseText) {
+function getBadRequestDescription(responseText) {
     if (responseText.includes('No valid locations')) {
         return weatherService.INVALID_LOCATION;
     } else {
