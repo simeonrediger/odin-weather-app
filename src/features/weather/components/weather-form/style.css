@@ -26,6 +26,10 @@
   justify-self: start;
 }
 
+.weather-form .checkbox:focus {
+  outline: 2px solid var(--color-field-border-focus);
+}
+
 .weather-form .submit-button {
   background-color: var(--color-button-bg);
   border: 1px solid var(--color-button-border);
