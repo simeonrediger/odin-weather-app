@@ -13,6 +13,5 @@ body {
   border-radius: 16px;
   display: flex;
   flex-direction: column-reverse;
-  gap: 1rem;
   padding: 1rem;
 }
