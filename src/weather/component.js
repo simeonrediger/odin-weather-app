@@ -37,8 +37,9 @@ function renderTemperature({ temperature, useFahrenheit }) {
     temperatureElement.textContent = temperature + unit;
 }
 
-function renderIcon({ iconId }) {
-    iconElement.textContent = iconId;
+async function renderIcon({ iconId }) {
+    const { default: icon } = await import(`../icons/${iconId}.svg`);
+    iconElement.src = icon;
 }
 
 const weatherComponent = {
