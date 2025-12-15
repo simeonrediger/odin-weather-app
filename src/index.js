@@ -7,7 +7,7 @@ import weatherFormComponent from './components/weather-form/component.js';
 import weatherService from './services/weather.js';
 import weatherState from './state/weather.js';
 
-import fahrenheitTimezones from './fahrenheit-timezones.json';
+import fahrenheitTimezones from './data/fahrenheit-timezones.json';
 
 weatherComponent.init(document);
 weatherFormComponent.init(document, {
