@@ -14,4 +14,5 @@
 
 .weather .temperature {
   font-size: 5rem;
+  line-height: 5rem;
 }
