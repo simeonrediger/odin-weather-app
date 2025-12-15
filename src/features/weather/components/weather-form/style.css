@@ -17,13 +17,13 @@
   padding: 0.25rem 0.5rem;
 }
 
-.weather-form .checkbox {
-  justify-self: start;
-}
-
 .weather-form .text-field:focus {
   border-color: var(--color-field-border-focus);
   outline: 1px solid var(--color-field-border-focus);
+}
+
+.weather-form .checkbox {
+  justify-self: start;
 }
 
 .weather-form .submit-button {
