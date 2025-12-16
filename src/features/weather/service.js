@@ -6,7 +6,17 @@ const visualCrossingApiKey = 'LKLZKMSAFFC85UJ29CC5TKVGY';
 async function getData(location) {
     location = formatLocationToTriggerCanonicalization(location);
     const requestUrl = getRequestUrl(location);
-    const response = await fetch(requestUrl);
+    let response;
+
+    try {
+        response = await fetch(requestUrl);
+    } catch (error) {
+        if (error.message.includes('NetworkError')) {
+            throw new Error('A network error occurred');
+        }
+
+        throw error;
+    }
 
     if (!response.ok) {
         await handleBadReponse(response);
