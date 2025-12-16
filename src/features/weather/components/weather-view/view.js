@@ -81,6 +81,10 @@ function renderTemperature({ temperature, useFahrenheit }) {
 }
 
 function renderBackground({ weatherClass } = {}) {
+    if (weatherClass === currentWeatherClass) {
+        return;
+    }
+
     container.classList.add(weatherClass);
     container.classList.remove(currentWeatherClass);
     currentWeatherClass = weatherClass;
