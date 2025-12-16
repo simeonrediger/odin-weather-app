@@ -58,14 +58,14 @@ function cacheElements(root) {
 }
 
 function render({ location, temperature, useFahrenheit, iconId }) {
-    renderIcon({ iconId });
+    renderWeatherIcon({ iconId });
     renderLocation({ location });
     renderTemperature({ temperature, useFahrenheit });
     renderBackground({ weatherClass: iconId });
     showResults();
 }
 
-async function renderIcon({ iconId }) {
+async function renderWeatherIcon({ iconId }) {
     const { default: icon } = await import(`./icons/${iconId}.svg`);
     weatherIcon.src = icon;
 }
