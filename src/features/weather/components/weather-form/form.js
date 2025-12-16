@@ -54,7 +54,20 @@ function handleTemperatureUnitChange() {
 function submit() {
     const location = locationInput.value;
     const useFahrenheit = useFahrenheitInput.checked;
-    handlers.onSubmit(location, useFahrenheit);
+
+    handlers
+        .onSubmit(location, useFahrenheit)
+        .then(handleFulfilledSubmission)
+        .catch(handleRejectedSubmission);
+}
+
+function handleFulfilledSubmission() {
+    locationInput.setCustomValidity('');
+}
+
+function handleRejectedSubmission(error) {
+    locationInput.setCustomValidity(error.message);
+    locationInput.reportValidity();
 }
 
 function applyDefaults({ location, useFahrenheit }) {
