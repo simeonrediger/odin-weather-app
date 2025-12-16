@@ -1,3 +1,4 @@
+import badRequestMessages from './bad-request-messages.js';
 import defaults from './defaults.js';
 import form from './components/weather-form/form.js';
 import service from './service.js';
@@ -22,11 +23,7 @@ async function handleFormSubmit(location, useFahrenheit) {
     } catch (error) {
         view.renderError(error.message);
 
-        if (
-            [service.INVALID_LOCATION, service.LOCATION_TOO_SHORT].includes(
-                error.message,
-            )
-        ) {
+        if (Object.values(badRequestMessages).includes(error.message)) {
             throw error;
         }
 
