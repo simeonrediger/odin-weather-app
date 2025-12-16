@@ -38,6 +38,7 @@ function cacheElements(root) {
 
 function bindEvents() {
     container.addEventListener('submit', handleSubmit);
+    locationInput.addEventListener('input', removeLocationInputCustomValidity);
     useFahrenheitInput.addEventListener('change', handleTemperatureUnitChange);
 }
 
@@ -68,6 +69,10 @@ function handleFulfilledSubmission() {
 function handleRejectedSubmission(error) {
     locationInput.setCustomValidity(error.message);
     locationInput.reportValidity();
+}
+
+function removeLocationInputCustomValidity() {
+    locationInput.setCustomValidity('');
 }
 
 function applyDefaults({ location, useFahrenheit }) {
