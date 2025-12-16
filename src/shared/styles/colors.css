@@ -10,8 +10,11 @@ html {
   --pale-blue: #559;
   --less-pale-blue: #449;
 
+  --pale-red: #f88;
+
   --color-bg-primary: var(--dark-gray);
   --color-text-primary: var(--white);
+  --color-text-error: var(--pale-red);
 
   --color-main-border: var(--gray);
 

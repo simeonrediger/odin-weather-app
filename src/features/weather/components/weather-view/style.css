@@ -20,6 +20,10 @@
   text-align: center;
 }
 
+.weather-view .error-message {
+  color: var(--color-text-error);
+}
+
 .weather-view .temperature {
   font-size: 5rem;
   line-height: 5rem;
