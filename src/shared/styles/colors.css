@@ -32,5 +32,5 @@ html {
   --color-button-border: var(--pale-blue);
   --color-button-border-focus: var(--light-blue);
 
-  --color-loading-indicator: var(--pale-blue);
+  --color-loading-indicator: var(--light-blue);
 }
