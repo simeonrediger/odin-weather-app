@@ -47,6 +47,11 @@ function render({ location, temperature, useFahrenheit, iconId }) {
     renderTemperature({ temperature, useFahrenheit });
 }
 
+async function renderIcon({ iconId }) {
+    const { default: icon } = await import(`./icons/${iconId}.svg`);
+    iconElement.src = icon;
+}
+
 function renderLocation({ location }) {
     locationElement.textContent = location;
 }
@@ -55,11 +60,6 @@ function renderTemperature({ temperature, useFahrenheit }) {
     const unit = '°' + (useFahrenheit ? 'F' : 'C');
     temperature = Math.round(temperature);
     temperatureElement.textContent = temperature + unit;
-}
-
-async function renderIcon({ iconId }) {
-    const { default: icon } = await import(`./icons/${iconId}.svg`);
-    iconElement.src = icon;
 }
 
 function renderErrorMessage(message) {}
