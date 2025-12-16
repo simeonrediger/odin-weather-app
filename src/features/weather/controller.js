@@ -20,7 +20,7 @@ async function handleFormSubmit(location, useFahrenheit) {
     try {
         weatherData = await service.getData(location);
     } catch (error) {
-        view.renderErrorMessage(error.message);
+        view.renderError(error.message);
 
         if (error.message === service.INVALID_LOCATION) {
             throw error;

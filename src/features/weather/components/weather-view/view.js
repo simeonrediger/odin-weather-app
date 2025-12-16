@@ -73,7 +73,7 @@ async function renderErrorIcon() {
     errorIconElement.src = icon;
 }
 
-function renderErrorMessage(message) {
+function renderError(message) {
     errorMessageElement.textContent = message;
     showError();
 }
@@ -92,7 +92,7 @@ const weatherComponent = {
     init,
     render,
     renderTemperature,
-    renderErrorMessage,
+    renderError,
 };
 
 export default weatherComponent;
