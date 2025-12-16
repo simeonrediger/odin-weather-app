@@ -1,0 +1,33 @@
+.loading-indicator {
+  color: var(--color-loading-indicator);
+}
+
+.loading-indicator,
+.loading-indicator:after {
+  box-sizing: border-box;
+}
+
+.loading-indicator {
+  display: inline-block;
+}
+
+.loading-indicator:after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6.4px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  animation: spinning-arcs 1.2s linear infinite;
+}
+
+@keyframes spinning-arcs {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

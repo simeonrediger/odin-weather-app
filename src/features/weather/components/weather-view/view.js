@@ -1,3 +1,4 @@
+import '@/shared/styles/loading-indicator.css';
 import '@/shared/styles/utilities.css';
 import './style.css';
 
