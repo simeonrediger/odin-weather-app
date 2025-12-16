@@ -17,6 +17,8 @@ let errorContainer;
 let errorMessageElement;
 let errorIconElement;
 
+let currentWeatherClass;
+
 function init(root) {
     cacheElements(root);
     renderErrorIcon();
@@ -59,6 +61,7 @@ function render({ location, temperature, useFahrenheit, iconId }) {
     renderIcon({ iconId });
     renderLocation({ location });
     renderTemperature({ temperature, useFahrenheit });
+    renderBackground({ weatherClass: iconId });
     showResults();
 }
 
@@ -77,6 +80,12 @@ function renderTemperature({ temperature, useFahrenheit }) {
     temperatureElement.textContent = temperature + unit;
 }
 
+function renderBackground({ weatherClass } = {}) {
+    container.classList.add(weatherClass);
+    container.classList.remove(currentWeatherClass);
+    currentWeatherClass = weatherClass;
+}
+
 async function renderErrorIcon() {
     const { default: icon } = await import(`./icons/error.svg`);
     errorIconElement.src = icon;
@@ -84,6 +93,7 @@ async function renderErrorIcon() {
 
 function renderError(message) {
     errorMessageElement.textContent = message;
+    renderBackground();
     showError();
 }
 
