@@ -1,4 +1,3 @@
-import badRequestMessages from './bad-request-messages.js';
 import defaults from './defaults.js';
 import form from './components/weather-form/form.js';
 import service from './service.js';
