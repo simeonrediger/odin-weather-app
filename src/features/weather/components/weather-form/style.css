@@ -22,6 +22,10 @@
   outline: 1px solid var(--color-field-border-focus);
 }
 
+.weather-form .text-field:user-invalid {
+  border-color: var(--color-field-border-error);
+}
+
 .weather-form .checkbox {
   justify-self: start;
 }

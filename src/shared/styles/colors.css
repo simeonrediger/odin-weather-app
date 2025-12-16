@@ -10,6 +10,7 @@ html {
   --pale-blue: #559;
   --less-pale-blue: #449;
 
+  --red: #c44;
   --pale-red: #f88;
 
   --color-bg-primary: var(--dark-gray);
@@ -22,6 +23,7 @@ html {
   --color-field-text: var(--white);
   --color-field-border: var(--light-gray);
   --color-field-border-focus: var(--light-blue);
+  --color-field-border-error: var(--red);
 
   --color-button-bg: var(--blue);
   --color-button-bg-hover: var(--less-pale-blue);
