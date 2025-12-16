@@ -4,11 +4,14 @@
 }
 
 .weather-view .results {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.weather-view .results:not(.hidden) {
+  display: flex;
 }
 
 .weather-view .location {

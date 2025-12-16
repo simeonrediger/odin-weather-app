@@ -1,3 +1,4 @@
+import '@/shared/styles/utilities.css';
 import './style.css';
 
 import assert from '@/shared/utils/assert.js';
@@ -45,6 +46,7 @@ function render({ location, temperature, useFahrenheit, iconId }) {
     renderIcon({ iconId });
     renderLocation({ location });
     renderTemperature({ temperature, useFahrenheit });
+    showResults();
 }
 
 async function renderIcon({ iconId }) {
@@ -62,7 +64,19 @@ function renderTemperature({ temperature, useFahrenheit }) {
     temperatureElement.textContent = temperature + unit;
 }
 
-function renderErrorMessage(message) {}
+function renderErrorMessage(message) {
+    hideResults();
+}
+
+function showResults() {
+    errorContainer.classList.add('hidden');
+    resultsContainer.classList.remove('hidden');
+}
+
+function hideResults() {
+    resultsContainer.classList.add('hidden');
+    errorContainer.classList.remove('hidden');
+}
 
 const weatherComponent = {
     init,
