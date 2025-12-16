@@ -5,9 +5,9 @@ import assert from '@/shared/utils/assert.js';
 let container;
 
 let resultsContainer;
+let iconElement;
 let locationElement;
 let temperatureElement;
-let iconElement;
 
 let errorContainer;
 let errorMessageElement;
