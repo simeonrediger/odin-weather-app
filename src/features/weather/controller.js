@@ -23,7 +23,11 @@ async function handleFormSubmit(location, useFahrenheit) {
     } catch (error) {
         view.renderError(error.message);
 
-        if (Object.values(badRequestMessages).includes(error.message)) {
+        const formInvalid = Object.values(badRequestMessages).includes(
+            error.message,
+        );
+
+        if (formInvalid) {
             throw error;
         }
 
