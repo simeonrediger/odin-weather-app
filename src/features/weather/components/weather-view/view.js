@@ -65,7 +65,7 @@ function renderTemperature({ temperature, useFahrenheit }) {
 }
 
 function renderErrorMessage(message) {
-    hideResults();
+    showError();
 }
 
 function showResults() {
@@ -73,7 +73,7 @@ function showResults() {
     resultsContainer.classList.remove('hidden');
 }
 
-function hideResults() {
+function showError() {
     resultsContainer.classList.add('hidden');
     errorContainer.classList.remove('hidden');
 }
