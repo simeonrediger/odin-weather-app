@@ -72,8 +72,8 @@
   .thunder,
   .wind
 ) {
-  background-color: #78a;
-  box-shadow: #78a 0 0 32px 32px;
+  background-color: #567;
+  box-shadow: #567 0 0 32px 32px;
 }
 
 .weather-view:is(
