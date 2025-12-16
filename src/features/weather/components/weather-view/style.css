@@ -41,9 +41,14 @@
   line-height: 5rem;
 }
 
-.weather-view:is(.clear-day, .partly-cloudy-day) {
+.weather-view:is(.clear-day) {
   background-color: #68f;
   box-shadow: #68f 0 0 32px 32px;
+}
+
+.weather-view:is(.partly-cloudy-day) {
+  background-color: #68c;
+  box-shadow: #68c 0 0 32px 32px;
 }
 
 .weather-view:is(.clear-night, .partly-cloudy-night) {
