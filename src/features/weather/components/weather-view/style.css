@@ -1,7 +1,9 @@
 .weather-view {
   height: 16rem;
   width: 30rem;
+}
 
+.weather-view .results {
   display: flex;
   flex-direction: column;
   justify-content: center;
