@@ -15,7 +15,13 @@ function init(root) {
 }
 
 async function handleFormSubmit(location, useFahrenheit) {
-    const weatherData = await service.getData(location);
+    let weatherData;
+
+    try {
+        weatherData = await service.getData(location);
+    } catch (error) {
+        return;
+    }
 
     state.update({
         location: weatherData.resolvedAddress,
