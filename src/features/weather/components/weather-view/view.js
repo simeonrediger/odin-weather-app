@@ -12,9 +12,11 @@ let temperatureElement;
 
 let errorContainer;
 let errorMessageElement;
+let errorIconElement;
 
 function init(root) {
     cacheElements(root);
+    renderErrorIcon();
 }
 
 function cacheElements(root) {
@@ -27,6 +29,7 @@ function cacheElements(root) {
     iconElement = container.querySelector("[data-role='icon']");
 
     errorContainer = container.querySelector("[data-role='error']");
+    errorIconElement = container.querySelector("[data-role='error-icon']");
     errorMessageElement = container.querySelector(
         "[data-role='error-message']",
     );
@@ -38,6 +41,7 @@ function cacheElements(root) {
         iconElement,
 
         errorContainer,
+        errorIconElement,
         errorMessageElement,
     });
 }
@@ -62,6 +66,11 @@ function renderTemperature({ temperature, useFahrenheit }) {
     const unit = '°' + (useFahrenheit ? 'F' : 'C');
     temperature = Math.round(temperature);
     temperatureElement.textContent = temperature + unit;
+}
+
+async function renderErrorIcon() {
+    const { default: icon } = await import(`./icons/error.svg`);
+    errorIconElement.src = icon;
 }
 
 function renderErrorMessage(message) {
