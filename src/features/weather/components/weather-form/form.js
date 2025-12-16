@@ -38,7 +38,7 @@ function cacheElements(root) {
 
 function bindEvents() {
     container.addEventListener('submit', handleSubmit);
-    locationInput.addEventListener('input', removeLocationInputCustomValidity);
+    locationInput.addEventListener('input', handleLocationInput);
     useFahrenheitInput.addEventListener('change', handleTemperatureUnitChange);
 }
 
@@ -71,8 +71,10 @@ function handleRejectedSubmission(error) {
     locationInput.reportValidity();
 }
 
-function removeLocationInputCustomValidity() {
-    locationInput.setCustomValidity('');
+function handleLocationInput() {
+    locationInput.setCustomValidity(
+        locationInput.value === '' ? 'This field cannot be empty' : '',
+    );
 }
 
 function applyDefaults({ location, useFahrenheit }) {
