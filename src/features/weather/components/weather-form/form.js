@@ -1,6 +1,7 @@
 import './style.css';
 
 import assert from '@/shared/utils/assert.js';
+import badRequestMessages from '@/features/weather/bad-request-messages.js';
 
 let container;
 let locationInput;
@@ -67,8 +68,16 @@ function handleFulfilledSubmission() {
 }
 
 function handleRejectedSubmission(error) {
-    locationInput.setCustomValidity(error.message);
-    locationInput.reportValidity();
+    const formIsInvalid = Object.values(badRequestMessages).includes(
+        error.message,
+    );
+
+    if (formIsInvalid) {
+        locationInput.setCustomValidity(error.message);
+        locationInput.reportValidity();
+    } else {
+        throw error;
+    }
 }
 
 function handleLocationInput() {

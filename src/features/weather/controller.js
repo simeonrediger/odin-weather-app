@@ -22,17 +22,7 @@ async function handleFormSubmit(location, useFahrenheit) {
         weatherData = await service.getData(location);
     } catch (error) {
         view.renderError(error.message);
-
-        const formIsInvalid = Object.values(badRequestMessages).includes(
-            error.message,
-        );
-
-        if (formIsInvalid) {
-            throw error;
-        }
-
-        console.error(error);
-        return;
+        throw error;
     }
 
     state.update({
