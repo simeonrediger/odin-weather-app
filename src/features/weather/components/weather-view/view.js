@@ -3,9 +3,12 @@ import './style.css';
 import assert from '@/shared/utils/assert.js';
 
 let container;
+let resultsContainer;
 let locationElement;
 let temperatureElement;
 let iconElement;
+let errorContainer;
+let errorMessageElement;
 
 function init(root) {
     cacheElements(root);
@@ -15,10 +18,25 @@ function cacheElements(root) {
     container = root.querySelector("[data-role='weather-view']");
     assert.elements({ container });
 
+    resultsContainer = container.querySelector("[data-role='results']");
     locationElement = container.querySelector("[data-role='location']");
     temperatureElement = container.querySelector("[data-role='temperature']");
     iconElement = container.querySelector("[data-role='icon']");
-    assert.elements({ locationElement, temperatureElement, iconElement });
+
+    errorContainer = container.querySelector("[data-role='error']");
+    errorMessageElement = container.querySelector(
+        "[data-role='error-message']",
+    );
+
+    assert.elements({
+        resultsContainer,
+        locationElement,
+        temperatureElement,
+        iconElement,
+
+        errorContainer,
+        errorMessageElement,
+    });
 }
 
 function render({ location, temperature, useFahrenheit, iconId }) {
