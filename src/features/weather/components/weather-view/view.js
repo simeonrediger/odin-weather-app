@@ -108,6 +108,7 @@ function showResults() {
 }
 
 function showLoadingIndicator() {
+    renderBackground();
     results.classList.add('hidden');
     errorContainer.classList.add('hidden');
     loadingIndicator.classList.remove('hidden');
