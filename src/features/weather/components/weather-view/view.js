@@ -42,9 +42,9 @@ function cacheElements(root) {
 }
 
 function render({ location, temperature, useFahrenheit, iconId }) {
+    renderIcon({ iconId });
     renderLocation({ location });
     renderTemperature({ temperature, useFahrenheit });
-    renderIcon({ iconId });
 }
 
 function renderLocation({ location }) {
