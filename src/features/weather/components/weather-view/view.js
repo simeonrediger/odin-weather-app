@@ -42,10 +42,13 @@ async function renderIcon({ iconId }) {
     iconElement.src = icon;
 }
 
+function renderErrorMessage(message) {}
+
 const weatherComponent = {
     init,
     render,
     renderTemperature,
+    renderErrorMessage,
 };
 
 export default weatherComponent;
