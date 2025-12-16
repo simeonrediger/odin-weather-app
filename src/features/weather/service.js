@@ -70,6 +70,8 @@ async function handleBadReponse(response) {
 function getBadRequestDescription(responseText) {
     if (responseText.includes('No valid locations')) {
         return weatherService.INVALID_LOCATION;
+    } else if (responseText.includes('Address is too short')) {
+        return weatherService.LOCATION_TOO_SHORT;
     } else {
         return 'Unexpected error occurred';
     }
@@ -78,6 +80,7 @@ function getBadRequestDescription(responseText) {
 const weatherService = {
     getData,
     INVALID_LOCATION: 'Invalid location',
+    LOCATION_TOO_SHORT: 'Location is too short',
 };
 
 export default weatherService;

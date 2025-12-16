@@ -22,10 +22,15 @@ async function handleFormSubmit(location, useFahrenheit) {
     } catch (error) {
         view.renderError(error.message);
 
-        if (error.message === service.INVALID_LOCATION) {
+        if (
+            [service.INVALID_LOCATION, service.LOCATION_TOO_SHORT].includes(
+                error.message,
+            )
+        ) {
             throw error;
         }
 
+        console.error(error);
         return;
     }
 
