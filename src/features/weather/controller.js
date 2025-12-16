@@ -16,6 +16,7 @@ function init(root) {
 }
 
 async function handleFormSubmit(location, useFahrenheit) {
+    view.showLoadingIndicator();
     let weatherData;
 
     try {

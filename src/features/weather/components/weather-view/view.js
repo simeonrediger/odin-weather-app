@@ -10,6 +10,8 @@ let iconElement;
 let locationElement;
 let temperatureElement;
 
+let loadingIndicatorElement;
+
 let errorContainer;
 let errorMessageElement;
 let errorIconElement;
@@ -28,6 +30,10 @@ function cacheElements(root) {
     temperatureElement = container.querySelector("[data-role='temperature']");
     iconElement = container.querySelector("[data-role='icon']");
 
+    loadingIndicatorElement = container.querySelector(
+        "[data-role='loading-indicator']",
+    );
+
     errorContainer = container.querySelector("[data-role='error']");
     errorIconElement = container.querySelector("[data-role='error-icon']");
     errorMessageElement = container.querySelector(
@@ -39,6 +45,8 @@ function cacheElements(root) {
         locationElement,
         temperatureElement,
         iconElement,
+
+        loadingIndicatorElement,
 
         errorContainer,
         errorIconElement,
@@ -80,16 +88,25 @@ function renderError(message) {
 
 function showResults() {
     errorContainer.classList.add('hidden');
+    loadingIndicatorElement.classList.add('hidden');
     resultsContainer.classList.remove('hidden');
+}
+
+function showLoadingIndicator() {
+    resultsContainer.classList.add('hidden');
+    errorContainer.classList.add('hidden');
+    loadingIndicatorElement.classList.remove('hidden');
 }
 
 function showError() {
     resultsContainer.classList.add('hidden');
+    loadingIndicatorElement.classList.add('hidden');
     errorContainer.classList.remove('hidden');
 }
 
 const weatherComponent = {
     init,
+    showLoadingIndicator,
     render,
     renderTemperature,
     renderError,
