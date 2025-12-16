@@ -1,7 +1,7 @@
 .weather-view {
   border-radius: 16px;
-  height: 16rem;
-  margin: 64px;
+  height: 20rem;
+  margin: 32px;
   transition:
     background-color 1s ease,
     box-shadow 1s ease;
@@ -43,17 +43,17 @@
 
 .weather-view:is(.clear-day) {
   background-color: #68f;
-  box-shadow: #68f 0 0 32px 32px;
+  box-shadow: #68f 0 0 16px 16px;
 }
 
 .weather-view:is(.partly-cloudy-day) {
   background-color: #68c;
-  box-shadow: #68c 0 0 32px 32px;
+  box-shadow: #68c 0 0 16px 16px;
 }
 
 .weather-view:is(.clear-night, .partly-cloudy-night) {
   background-color: #124;
-  box-shadow: #124 0 0 32px 32px;
+  box-shadow: #124 0 0 16px 16px;
 }
 
 .weather-view:is(
@@ -73,7 +73,7 @@
   .wind
 ) {
   background-color: #567;
-  box-shadow: #567 0 0 32px 32px;
+  box-shadow: #567 0 0 16px 16px;
 }
 
 .weather-view:is(
@@ -84,5 +84,5 @@
 
 ) {
   background-color: #101018;
-  box-shadow: #101018 0 0 32px 32px;
+  box-shadow: #101018 0 0 16px 16px;
 }
