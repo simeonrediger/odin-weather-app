@@ -18,6 +18,7 @@ html {
   --color-text-error: var(--pale-red);
 
   --color-main-border: var(--gray);
+  --color-container-box-shadow: var(--black);
 
   --color-field-bg: var(--black);
   --color-field-text: var(--white);
