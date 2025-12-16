@@ -65,6 +65,7 @@ function renderTemperature({ temperature, useFahrenheit }) {
 }
 
 function renderErrorMessage(message) {
+    errorMessageElement.textContent = message;
     showError();
 }
 
